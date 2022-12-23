@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const MaterialService = require('../app/service/PostService/materialService')
-const MaterialController = require('../app/controller/PostController/materialController')
+const MaterialService = require('../app/service/PostService/MaterialService')
+const MaterialController = require('../app/controller/PostController/MaterialController')
 
 const materialService = new MaterialService()
 const materialController = new MaterialController(materialService)
