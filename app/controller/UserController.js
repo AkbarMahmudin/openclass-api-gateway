@@ -16,7 +16,6 @@ class UserController {
       let params = null
       if (userId) params = userId
       const { response, statusCode } = await this.#service.getUser(params)
-      console.log(req.user)
 
       return res.json(statusCode, response)
     } catch (err) {

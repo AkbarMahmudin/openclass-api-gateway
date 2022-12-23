@@ -6,6 +6,8 @@ const cors = require('cors')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
+const materialsRouter = require('./routes/materials')
+const modulesRouter = require('./routes/modules')
 
 const app = express()
 
@@ -20,11 +22,13 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+app.use('/materials', materialsRouter)
+app.use('/modules', modulesRouter)
 
 app.use((err, req, res, next) => {
-  const { status, message } = err.response.data
+  const { status, message } = err.response?.data
 
-  return res.json(err.response.status, {
+  return res.json(err.response?.status, {
     status,
     message
   })
