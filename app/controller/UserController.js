@@ -16,6 +16,7 @@ class UserController {
       let params = null
       if (userId) params = userId
       const { response, statusCode } = await this.#service.getUser(params)
+      console.log(req.user)
 
       return res.json(statusCode, response)
     } catch (err) {
@@ -35,7 +36,7 @@ class UserController {
 
   async updateUser (req, res, next) {
     try {
-      const { id: userId } = req.params
+      const { userId } = req.user
       const { response, statusCode } = await this.#service.updateUser(userId, req.body)
 
       return res.json(statusCode, response)
