@@ -21,7 +21,9 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
+// Service User
 app.use('/users', usersRouter)
+// Service Post
 app.use('/materials', materialsRouter)
 app.use('/modules', modulesRouter)
 
