@@ -8,6 +8,9 @@ const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const materialsRouter = require('./routes/materials')
 const modulesRouter = require('./routes/modules')
+const classroomsRouter = require('./routes/classrooms')
+const syllabusesRouter = require('./routes/syllabuses')
+const myClassroomsRouter = require('./routes/my-classrooms')
 
 const app = express()
 
@@ -26,6 +29,10 @@ app.use('/users', usersRouter)
 // Service Post
 app.use('/materials', materialsRouter)
 app.use('/modules', modulesRouter)
+// Service Classroom
+app.use('/classrooms', classroomsRouter)
+app.use('/syllabuses', syllabusesRouter)
+app.use('/my-classrooms', myClassroomsRouter)
 
 app.use((err, req, res, next) => {
   const { status, message } = err.response?.data
