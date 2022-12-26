@@ -35,9 +35,9 @@ app.use('/syllabuses', syllabusesRouter)
 app.use('/my-classrooms', myClassroomsRouter)
 
 app.use((err, req, res, next) => {
-  const { status, message } = err.response?.data
+  const { status = 'fail', message = 'internal server error' } = err.response?.data
 
-  return res.json(err.response?.status, {
+  return res.json(err.response?.status || 500, {
     status,
     message
   })
