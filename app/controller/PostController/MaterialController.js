@@ -18,7 +18,6 @@ class MaterialController {
 
       return res.json(statusCode, response)
     } catch (err) {
-      console.log(err)
       next(err)
     }
   }
@@ -27,11 +26,9 @@ class MaterialController {
     try {
       const { userId } = req.user
       const { response, statusCode } = await this.#service.getMaterial(null, { author: userId })
-      console.log(response)
 
       return res.json(statusCode, response)
     } catch (err) {
-      console.log(err)
       next(err)
     }
   }
